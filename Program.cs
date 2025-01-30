@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.CompilerServices;
 
 namespace Oppgave1
@@ -7,30 +7,46 @@ namespace Oppgave1
     {
         static void Main(string[] args)
         {
-            int numbOfProducts = 0;
-            Console.WriteLine("Input number of products:"); 
-            numbOfProducts = int.Parse(Console.ReadLine());
-        
-            if (numbOfProducts <= 0)
+            while(true)
             {
-                Console.WriteLine("Incorrect value.");
+                int productsQuantity = 0;
+                Console.WriteLine("Input number of products:"); 
+                string? numbOfProducts = Console.ReadLine();
+
+
+            
+                if (int.TryParse(numbOfProducts, out productsQuantity) && productsQuantity > 0)
+                {
+                    if (productsQuantity <= 10)
+                    {
+                        Console.WriteLine("You have 5% discount.");
+                        break;
+                    }
+                    
+                    else if (productsQuantity <= 20)
+                    {
+                        Console.WriteLine("You have 10% discount.");
+                        break;
+                    }
+                    
+                    else if (productsQuantity <= 30)
+                    {
+                        Console.WriteLine("You have 15% discount.");
+                        break;
+                    }
+                    
+                    else
+                    {
+                        Console.WriteLine("You have 20% discount.");
+                        break;
+                    }   
+                } 
+
+                else 
+                {
+                    Console.WriteLine("Incorrect value. Please try again!");
+                }
             }
-            else if (numbOfProducts <= 10)
-            {
-                Console.WriteLine("You have 5% discount.");
-            }
-            else if (numbOfProducts <= 20)
-            {
-                Console.WriteLine("You have 10% discount.");
-            }
-            else if (numbOfProducts <= 30)
-            {
-                Console.WriteLine("You have 15% discount.");
-            }
-            else
-            {
-                Console.WriteLine("You have 20% discount.");
-            }   
         }
     }
-}
+} 
